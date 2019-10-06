@@ -1,0 +1,9 @@
+<% include ./partials/header %>
+
+
+<% heroes.forEach((hero) => { %>
+  <img src="<%= hero.image.url %>" alt="Super Hero Pic">
+  <p><%= hero.name %></p>
+<% }); %>
+
+<% include ./partials/footer %>

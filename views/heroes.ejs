@@ -1,0 +1,12 @@
+<% include ./partials/header %>
+
+<h3>Take a look at these or <a href="/heroes/search">search</a> for a specific hero.</h3>
+
+<% heroes.forEach((hero) => { %>
+  <img src="<%= hero.image.url %>" alt="Super Hero Pic">
+  <p><%= hero.name %></p>
+  <a href="#">Show Info</a>
+<% }); %>
+
+
+<% include ./partials/footer %>
