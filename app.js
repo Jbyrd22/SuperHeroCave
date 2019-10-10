@@ -21,7 +21,7 @@ app.use(methodOverride("_method"));
 
 function makeArray(){
   let arr = [];
-  for(var i = 0; i < 5; i++){
+  for(var i = 0; i < 9; i++){
     arr.push(Math.floor(Math.random() * 731) + 1)
   }
   return arr;
@@ -37,7 +37,7 @@ app.get('/heroes', async (req, res) => {
   let randNumArray = makeArray();
   let heroes = [];
 
-  for(var i = 0; i < 5; i++){
+  for(var i = 0; i < 9; i++){
     let options = {
       url: `https://superheroapi.com/api/2422705334455544/${randNumArray[i]}`,
       method: "GET",
@@ -48,11 +48,6 @@ app.get('/heroes', async (req, res) => {
   }
 
   res.render("heroes", {heroes: heroes});
-});
-
-//search for a heroes
-app.get('/heroes/search', async (req, res) => {
-  res.render("search");
 });
 
 //hero show route

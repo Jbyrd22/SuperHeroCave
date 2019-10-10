@@ -1,9 +1,45 @@
 <% include ./partials/header %>
 
+    <style media="screen">
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        background-image: url("http://www.pixelstalk.net/wp-content/uploads/2016/05/Photo-Screen-HD-Superhero-Backgrounds.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
 
-<% heroes.forEach((hero) => { %>
-  <img src="<%= hero.image.url %>" alt="Super Hero Pic">
-  <p><%= hero.name %></p>
-<% }); %>
+  <body>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <% heroes.forEach((hero) => { %>
+          <div class="col-lg-8 d-flex justify-content-center">
+            <div class="card my-4">
+              <img src="<%= hero.image.url %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= hero.name %></h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Full Name: <%= hero.biography['full-name'] %></li>
+                <li class="list-group-item">Height: <%= hero.appearance.height %></li>
+                <li class="list-group-item">Weight: <%= hero.appearance.weight %></li>
+                <li class="list-group-item">Alignment: <%= hero.biography.alignment %></li>
+                <li class="list-group-item">Birth Place: <%= hero.biography['place-of-birth'] %></li>
+                <li class="list-group-item">Gender: <%= hero.appearance.gender %></li>
+                <li class="list-group-item">Race: <%= hero.appearance.race %></li>
+                <li class="list-group-item">Relatives: <%= hero.connections.relatives %></li>
+              </ul>
+            </div>
+
+
+          </div>
+        <% }) %>
+      </div>
+    </div>
+
+
 
 <% include ./partials/footer %>

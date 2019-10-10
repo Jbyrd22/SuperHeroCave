@@ -1,12 +1,24 @@
 <% include ./partials/header %>
 
-<h3>Take a look at these or <a href="/heroes/search">search</a> for a specific hero.</h3>
-
-<% heroes.forEach((hero) => { %>
-  <img src="<%= hero.image.url %>" alt="Super Hero Pic">
-  <p><%= hero.name %></p>
-  <a href="#">Show Info</a>
-<% }); %>
-
+<div class="container d-flex my-5">
+  <div class="row">
+    <% heroes.forEach((hero) => { %>
+      <div class="col-lg-4">
+        <div class="card my-4">
+          <img src="<%= hero.image.url %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= hero.name %></h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Full Name: <%= hero.biography['full-name'] %></li>
+            <li class="list-group-item">Height: <%= hero.appearance.height %></li>
+            <li class="list-group-item">Weight: <%= hero.appearance.weight %></li>
+            <li class="list-group-item">Alignment: <%= hero.biography.alignment %></li>
+          </ul>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
 
 <% include ./partials/footer %>
