@@ -1,0 +1,41 @@
+<% include ./partials/header %>
+
+<style media="screen">
+  body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-image: url("https://goldwallpapers.com/uploads/posts/superhero-wallpaper/superhero_wallpaper_008.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+
+<div class="container d-flex my-5">
+  <div class="row">
+
+      <div class="col-lg-6">
+        <div class="card my-4">
+          <img src="<%= hero.image %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= hero.name %></h5>
+
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name: <%= hero.name %></li>
+            <li class="list-group-item">Height: <%= hero.height %></li>
+            <li class="list-group-item">Weight: <%= hero.weight %></li>
+            <li class="list-group-item">Alignment: <%= hero.alignment %></li>
+            <li class="list-group-item">Birth Place: <%= hero.birthPlace %></li>
+            <li class="list-group-item">Gender: <%= hero.gender %></li>
+            <li class="list-group-item">Race: <%= hero.race %></li>
+            <li class="list-group-item">Relatives: <%= hero.relatives %></li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<% include ./partials/footer %>

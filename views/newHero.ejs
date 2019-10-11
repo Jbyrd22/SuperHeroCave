@@ -1,0 +1,63 @@
+<% include ./partials/header %>
+
+<style media="screen">
+  body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-image: url("http://wallpapercave.com/wp/Ftbynkq.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+</style>
+
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-lg-8 d-flex justify-content-end">
+      <form class="w-75" action="/myHeroes" method="post">
+        <div class="form-group">
+          <label class="text-light" for="name">Hero's Name</label>
+          <input type="text" class="form-control" id="name" name="hero[name]" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="height">Hero's Height</label>
+          <input type="text" class="form-control" id="height" name="hero[height]" placeholder="Height">
+        </div>
+        <div class="form-group form-check">
+          <label class="text-light" for="weight">Hero's Weight</label>
+          <input type="text" class="form-control" id="weight" name="hero[weight]" placeholder="Weight">
+        </div>
+        <div class="form-group form-check">
+          <label class="text-light" for="alignment">Hero's Alignment</label>
+          <input type="text" class="form-control" id="alignment" name="hero[alignment]" placeholder="Alignment">
+        </div>
+        <div class="form-group form-check">
+          <label class="text-light" for="birthplace">Hero's Birth Place</label>
+          <input type="text" class="form-control" id="birthplace" name="hero[birthPlace]" placeholder="Birth Place">
+        </div>
+        <div class="form-group form-check">
+          <label class="text-light" for="gender">Hero's Gender</label>
+          <input type="text" class="form-control" id="gender" name="hero[gender]" placeholder="Gender">
+        </div>
+        <div class="form-group form-check">
+          <label class="text-light" for="race">Hero's Race</label>
+          <input type="text" class="form-control" id="race" name="hero[race]" placeholder="Race">
+        </div>
+        <div class="form-group form-check">
+          <label class="text-light" for="relatives">Hero's Relatives</label>
+          <input type="text" class="form-control" id="relatives" name="hero[relatives]" placeholder="Relatives">
+        </div>
+        <div class="form-group form-check">
+          <label class="text-light" for="image">Hero's Image</label>
+          <input type="text" class="form-control" id="image" name="hero[image]" placeholder="Hero Picture">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<% include ./partials/footer %>

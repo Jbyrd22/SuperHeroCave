@@ -9,8 +9,8 @@ const express = require("express"),
       mongoose = require("mongoose");
 
 //requiring routes
-const heroRoutes = require("./routes/hero"),
-	  	myHeroRoutes = require("./routes/myHero"),
+const heroRoutes = require("./routes/heroes"),
+	  	myHeroRoutes = require("./routes/myHeroes"),
       authRoutes = require("./routes/auth");
 
 
@@ -26,7 +26,7 @@ app.use(methodOverride("_method"));
 
 app.use(heroRoutes);
 app.use(authRoutes);
-//app.use(require("./routes/myHero"));
+app.use(myHeroRoutes);
 
 
 //Tell server to listen to port 3000-------------------------------------------------------
