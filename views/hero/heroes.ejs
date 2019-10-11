@@ -8,13 +8,9 @@
           <img src="<%= hero.image.url %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><%= hero.name %></h5>
+            <a href="/heroes/<%= hero.id %>" class="btn btn-primary">More Info</a>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Full Name: <%= hero.biography['full-name'] %></li>
-            <li class="list-group-item">Height: <%= hero.appearance.height %></li>
-            <li class="list-group-item">Weight: <%= hero.appearance.weight %></li>
-            <li class="list-group-item">Alignment: <%= hero.biography.alignment %></li>
-          </ul>
+          
         </div>
       </div>
     <% }) %>

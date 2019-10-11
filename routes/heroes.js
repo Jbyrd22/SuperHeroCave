@@ -18,21 +18,24 @@ function makeArray(){
 router.get('/heroes', async (req, res) => {
   let randNumArray = makeArray();
   let heroes = [];
-
-  for(var i = 0; i < 9; i++){
-    let options = {
-      url: `https://superheroapi.com/api/2422705334455544/${randNumArray[i]}`,
-      method: "GET",
-      json: true
+  try {
+    for(var i = 0; i < 9; i++){
+      let options = {
+        url: `https://superheroapi.com/api/2422705334455544/${randNumArray[i]}`,
+        method: "GET",
+        json: true
+      }
+      let hero = await rp(options);
+      heroes.push(hero);
     }
-    let hero = await rp(options);
-    heroes.push(hero);
+    res.render("hero/heroes", {heroes: heroes});
+  } catch(err) {
+    console.log(err);
   }
 
-  res.render("hero/heroes", {heroes: heroes});
 });
 
-//hero show route
+//hero search route
 router.get("/heroes/show", async (req, res) => {
     let name = req.query.name;
     let options = {
@@ -40,15 +43,31 @@ router.get("/heroes/show", async (req, res) => {
       method: 'GET',
       json: true
     }
-
-    let hero = await rp(options);
-
-    if(hero.response == 'error'){
-      console.log(hero.error);
-      res.redirect('/heroes/search');
-    } else {
+    try {
+      let hero = await rp(options);
       res.render("hero/show", {heroes: hero.results});
+    } catch(err) {
+      console.log(err);
     }
 });
+
+//hero show route
+router.get("/heroes/:id", async (req, res) => {
+  let options = {
+    url: `https://superheroapi.com/api/2422705334455544/${req.params.id}`,
+    method: 'GET',
+    json: true
+  }
+
+  try {
+    let heroes = [];
+    let hero = await rp(options);
+    heroes.push(hero);
+    res.render("hero/show", {heroes: heroes});
+  } catch(err) {
+    console.log(err);
+  }
+});
+
 
 module.exports = router;
