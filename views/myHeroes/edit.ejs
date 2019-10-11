@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
 
 <style media="screen">
   body {
@@ -16,42 +16,42 @@
 <div class="container">
   <div class="row justify-content-end">
     <div class="col-lg-8 d-flex justify-content-end">
-      <form class="w-75" action="/myHeroes" method="post">
+      <form class="w-75" action="/myHeroes/<%= hero._id %>?_method=PUT" method="post">
         <div class="form-group">
           <label class="text-light" for="name">Hero's Name</label>
-          <input type="text" class="form-control" id="name" name="hero[name]" placeholder="Name">
+          <input type="text" class="form-control" id="name" name="hero[name]" value="<%= hero.name %>">
         </div>
         <div class="form-group">
           <label class="text-light" for="height">Hero's Height</label>
-          <input type="text" class="form-control" id="height" name="hero[height]" placeholder="Height">
+          <input type="text" class="form-control" id="height" name="hero[height]" value="<%= hero.height %>">
         </div>
         <div class="form-group form-check">
           <label class="text-light" for="weight">Hero's Weight</label>
-          <input type="text" class="form-control" id="weight" name="hero[weight]" placeholder="Weight">
+          <input type="text" class="form-control" id="weight" name="hero[weight]" value="<%= hero.weight %>">
         </div>
         <div class="form-group form-check">
           <label class="text-light" for="alignment">Hero's Alignment</label>
-          <input type="text" class="form-control" id="alignment" name="hero[alignment]" placeholder="Alignment">
+          <input type="text" class="form-control" id="alignment" name="hero[alignment]" value="<%= hero.alignment %>">
         </div>
         <div class="form-group form-check">
           <label class="text-light" for="birthplace">Hero's Birth Place</label>
-          <input type="text" class="form-control" id="birthplace" name="hero[birthPlace]" placeholder="Birth Place">
+          <input type="text" class="form-control" id="birthplace" name="hero[birthPlace]" value="<%= hero.birthPlace %>">
         </div>
         <div class="form-group form-check">
           <label class="text-light" for="gender">Hero's Gender</label>
-          <input type="text" class="form-control" id="gender" name="hero[gender]" placeholder="Gender">
+          <input type="text" class="form-control" id="gender" name="hero[gender]" value="<%= hero.gender %>">
         </div>
         <div class="form-group form-check">
           <label class="text-light" for="race">Hero's Race</label>
-          <input type="text" class="form-control" id="race" name="hero[race]" placeholder="Race">
+          <input type="text" class="form-control" id="race" name="hero[race]" value="<%= hero.race %>">
         </div>
         <div class="form-group form-check">
           <label class="text-light" for="relatives">Hero's Relatives</label>
-          <input type="text" class="form-control" id="relatives" name="hero[relatives]" placeholder="Relatives">
+          <input type="text" class="form-control" id="relatives" name="hero[relatives]" value="<%= hero.relatives %>">
         </div>
         <div class="form-group form-check">
           <label class="text-light" for="image">Hero's Image</label>
-          <input type="text" class="form-control" id="image" name="hero[image]" placeholder="Hero Picture">
+          <input type="text" class="form-control" id="image" name="hero[image]" value="<%= hero.image %>">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -60,4 +60,4 @@
 </div>
 
 
-<% include ./partials/footer %>
+<% include ../partials/footer %>

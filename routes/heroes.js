@@ -29,7 +29,7 @@ router.get('/heroes', async (req, res) => {
     heroes.push(hero);
   }
 
-  res.render("heroes", {heroes: heroes});
+  res.render("hero/heroes", {heroes: heroes});
 });
 
 //hero show route
@@ -47,7 +47,7 @@ router.get("/heroes/show", async (req, res) => {
       console.log(hero.error);
       res.redirect('/heroes/search');
     } else {
-      res.render("show", {heroes: hero.results});
+      res.render("hero/show", {heroes: hero.results});
     }
 });
 

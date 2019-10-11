@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
 
 <style media="screen">
   body {
@@ -20,7 +20,10 @@
           <img src="<%= hero.image %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><%= hero.name %></h5>
-
+            <a href="/myHeroes/<%= hero._id %>/edit" class="btn btn-warning">Edit</a>
+            <form class="" action="/myHeroes/<%= hero._id %>?_method=DELETE" method="post">
+              <button class="btn btn-danger">Delete</button>
+            </form>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Name: <%= hero.name %></li>
@@ -38,4 +41,4 @@
   </div>
 </div>
 
-<% include ./partials/footer %>
+<% include ../partials/footer %>
