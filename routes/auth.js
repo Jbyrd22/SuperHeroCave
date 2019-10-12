@@ -8,6 +8,7 @@ const express = require("express"),
 
 //landing page
 router.get('/', (req, res) => {
+  console.log(req);
   res.render("index");
 });
 
@@ -27,12 +28,12 @@ router.post("/register", async (req, res) => {
     }
     await User.register(newUser, req.body.password);
     await passport.authenticate("local")(req, res, () => {
-      //req.flash goes here
-      res.redirect("/heroes");
+      req.flash("success", `Welcome To The SuperHero Cave ${newUser.username}!`)
+      res.redirect("/myHeroes");
     });
   } catch(err) {
     console.log(err);
-    //req.flash goes here
+    req.flash("error", "Try Again")
     res.redirect("back");
   }
 });
@@ -45,15 +46,15 @@ router.get("/login", (req, res) => {
 //post route to login
 router.post("/login", passport.authenticate("local",
 	{
-		successRedirect: "/heroes",
+		successRedirect: "/myHeroes",
 		failureRedirect: "/login"
 	}), (req, res) => {});
 
 //logout route
 router.get("/logout", (req, res) => {
-	req.logout();
-	//req.flash("success", "Logged You Out");
-	res.redirect("/heroes");
+  req.logout();
+ 	req.flash("success", `Logged You Out`);
+	res.redirect("/myHeroes");
 });
 
 
