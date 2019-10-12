@@ -9,7 +9,16 @@ const heroSchema = new mongoose.Schema({
   gender: String,
   race: String,
   relatives: String,
-  image: String
+  image: String,
+  author:
+	{
+		id:
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "User"
+		},
+		username: String
+	}
 });
 
 const Hero = mongoose.model("Hero", heroSchema);
