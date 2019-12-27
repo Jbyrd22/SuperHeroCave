@@ -8,7 +8,6 @@ const express = require("express"),
 
 //landing page
 router.get('/', (req, res) => {
-  console.log(req);
   res.render("index");
 });
 
@@ -23,7 +22,7 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     let newUser = new User({username: req.body.username});
-    if(req.body.adminCode === process.env.SECRET_CODE) {
+    if(req.body.adminCode === "Axcel&Lilly") {
       newUser.isAdmin = true;
     }
     await User.register(newUser, req.body.password);
