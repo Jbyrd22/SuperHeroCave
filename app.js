@@ -20,7 +20,7 @@ const heroRoutes = require("./routes/heroes"),
 
 
 //connect to database
-mongoose.connect(DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //set up for all templates and routes to use these
 app.use(bodyParser.urlencoded({extended: true}));
