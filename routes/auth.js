@@ -22,7 +22,7 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     let newUser = new User({username: req.body.username});
-    if(req.body.adminCode === "Axcel&Lilly") {
+    if(req.body.adminCode === process.env.SECRET_CODE) {
       newUser.isAdmin = true;
     }
     await User.register(newUser, req.body.password);

@@ -20,8 +20,8 @@ const heroRoutes = require("./routes/heroes"),
 
 
 //connect to database
-//mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect("mongodb://jason_crask:Mongoose22!@superherocave-shard-00-00-ss0i6.mongodb.net:27017,superherocave-shard-00-01-ss0i6.mongodb.net:27017,superherocave-shard-00-02-ss0i6.mongodb.net:27017/test?ssl=true&replicaSet=SuperHeroCave-shard-0&authSource=admin&retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
+
 //set up for all templates and routes to use these
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -34,8 +34,7 @@ app.use(flash());//must come before passport configuration!!!
 //===========================================================================
 
 app.use(expressSession({
-  //secret: process.env.PASSPORT,
-  secret: "I am the greatest superhero!", 
+  secret: process.env.PASSPORT, 
 	resave: false,
 	saveUninitialized: false
 }));
