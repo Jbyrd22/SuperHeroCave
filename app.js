@@ -34,7 +34,7 @@ app.use(flash());//must come before passport configuration!!!
 //===========================================================================
 
 app.use(expressSession({
-	secret: PASSPORT,
+	secret: process.env.PASSPORT,
 	resave: false,
 	saveUninitialized: false
 }));
