@@ -21,7 +21,7 @@ const heroRoutes = require("./routes/heroes"),
 
 //connect to database
 //mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect("mongodb+srv://jason_crask:Mongoose22!@superherocave-ss0i6.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://jason_crask:Mongoose22!@superherocave-ss0i6.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
 //set up for all templates and routes to use these
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
